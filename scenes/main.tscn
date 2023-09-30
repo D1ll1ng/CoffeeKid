@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bqqgyqafm7xwp"]
+[gd_scene load_steps=21 format=3 uid="uid://bqqgyqafm7xwp"]
 
 [ext_resource type="Environment" uid="uid://bqnqgflivjvue" path="res://scenes/main-environment.tres" id="1_ahusb"]
 [ext_resource type="PackedScene" uid="uid://dl2ed4gkybggf" path="res://objects/player.tscn" id="2_onms2"]
@@ -10,9 +10,12 @@
 [ext_resource type="PackedScene" uid="uid://dtjvjdjl8cs6e" path="res://models/flag.glb" id="9_fw1f5"]
 [ext_resource type="Script" path="res://models/flag.gd" id="9_kk0hh"]
 [ext_resource type="PackedScene" uid="uid://dfpisimsgf5ce" path="res://objects/coin.tscn" id="10_fwhys"]
+[ext_resource type="Script" path="res://objects/GoalFromCoin.gd" id="11_1biow"]
 [ext_resource type="Script" path="res://scripts/hud.gd" id="11_apvpm"]
+[ext_resource type="Script" path="res://scenes/Goal2.gd" id="12_d7kc2"]
 [ext_resource type="PackedScene" uid="uid://dy017k58p20sk" path="res://objects/cloud.tscn" id="13_drtpy"]
 [ext_resource type="Texture2D" uid="uid://cd7oyc56ehkx1" path="res://sprites/coin.png" id="13_jfda3"]
+[ext_resource type="PackedScene" uid="uid://c2y3uvwpkp61c" path="res://models/CupPlayer.blend" id="16_rq07s"]
 [ext_resource type="FontFile" uid="uid://d0cxd77jybrcn" path="res://fonts/lilita_one_regular.ttf" id="17_tk810"]
 
 [sub_resource type="GDScript" id="GDScript_qmdx2"]
@@ -23,11 +26,9 @@ script/source = "extends Node3D
 func _ready():
 	pass # Replace with function body.
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
 "
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_apyam"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_38ys3"]
 font = ExtResource("17_tk810")
@@ -41,6 +42,7 @@ shadow_offset = Vector2(2, 2)
 environment = ExtResource("1_ahusb")
 
 [node name="Player" parent="." node_paths=PackedStringArray("view") instance=ExtResource("2_onms2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.65653, 0.5, 0)
 view = NodePath("../View")
 
 [node name="View" type="Node3D" parent="." node_paths=PackedStringArray("target")]
@@ -57,6 +59,9 @@ fov = 40.0
 
 [node name="platform" parent="World" instance=ExtResource("6_sdmev")]
 transform = Transform3D(0.993085, 0, -0.117399, 0, 1, 0, 0.117399, 0, 0.993085, 0, 0, 0)
+
+[node name="platform5" parent="World" instance=ExtResource("6_sdmev")]
+transform = Transform3D(0.993085, 0, -0.117399, 0, 1, 0, 0.117399, 0, 0.993085, 2.2823, 0, 0.244107)
 
 [node name="platform4" parent="World" instance=ExtResource("6_sdmev")]
 transform = Transform3D(0.993085, 0, -0.117399, 0, 1, 0, 0.117399, 0, 0.993085, -15, 0, 4)
@@ -92,12 +97,29 @@ transform = Transform3D(0.939693, 0, 0.34202, 0, 1, 0, -0.34202, 0, 0.939693, -1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 1, -2)
 script = SubResource("GDScript_qmdx2")
 
+[node name="platform-grass-large-round2" parent="World" instance=ExtResource("8_4oh1e")]
+transform = Transform3D(2.95045, 0, 0, 0, 2.95045, 0, 0, 0, 2.95045, 7.84734, -1.29495, -2.00752)
+script = SubResource("GDScript_qmdx2")
+
 [node name="flag" parent="World" instance=ExtResource("9_fw1f5")]
-transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -3.31016, 0.48077, 0.756334)
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 6.48538, 0.197798, 1.55693)
 script = ExtResource("9_kk0hh")
 
 [node name="coin" parent="World" instance=ExtResource("10_fwhys")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0.635, 0)
+
+[node name="coin11" parent="World" instance=ExtResource("10_fwhys")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.28518, 0.635, -1.34138)
+
+[node name="GoalFromCoin" parent="World" instance=ExtResource("10_fwhys")]
+transform = Transform3D(0.996522, 0, 0, 0, 0.996522, 0, 0, 0, 0.996522, 8.55474, 0.635, 2.59597)
+script = ExtResource("11_1biow")
+
+[node name="coin12" parent="World" instance=ExtResource("10_fwhys")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.93626, 0.635, -2.24305)
+
+[node name="coin13" parent="World" instance=ExtResource("10_fwhys")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.67435, 0.635, -3.0554)
 
 [node name="coin10" parent="World" instance=ExtResource("10_fwhys")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0.635, 4)
@@ -132,6 +154,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5495, 1.10741, -2.666)
 [node name="cube9" parent="World" instance=ExtResource("13_drtpy")]
 transform = Transform3D(1.27593, -0.401864, 0.422933, 0.471408, 1.30937, -0.178025, -0.343721, 0.304009, 1.32582, 3.33538, 1.37146, -4.1932)
 
+[node name="cube15" parent="World" instance=ExtResource("13_drtpy")]
+transform = Transform3D(-0.523491, 0.000626924, -0.852031, 0.000348132, 1, 0.000521904, 0.852031, -2.33813e-05, -0.523491, 13.8506, 1.1075, -4.59015)
+
+[node name="cube16" parent="World" instance=ExtResource("13_drtpy")]
+transform = Transform3D(-0.374782, -0.0478318, -1.35115, 0.471673, 1.30939, -0.177186, 1.26706, -0.501577, -0.333699, 14.2171, 1.37137, -2.26905)
+
 [node name="cube10" parent="World" instance=ExtResource("13_drtpy")]
 transform = Transform3D(1.32811, 0.370441, 0.259369, -0.293866, 1.3186, -0.37854, -0.34372, 0.30401, 1.32582, -10.5752, 2.03819, -7.93707)
 
@@ -146,6 +174,14 @@ transform = Transform3D(1.56209, -1.37982, 1.71508, 1.97375, 1.80907, -0.342241,
 
 [node name="cube14" parent="World" instance=ExtResource("13_drtpy")]
 transform = Transform3D(1.56209, -1.37982, 1.71508, 1.97375, 1.80907, -0.342241, -0.974547, 1.4522, 2.05595, -15.866, 2.03819, 7.83702)
+
+[node name="Area3D" type="Area3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.41427, 1.97005, 2.78465)
+script = ExtResource("12_d7kc2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.13538, -1.04323, -0.798884)
+shape = SubResource("BoxShape3D_apyam")
 
 [node name="Sun" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.422618, -0.694272, 0.582563, 0, 0.642788, 0.766044, -0.906308, 0.323744, -0.271654, 0, 0, 0)
@@ -178,5 +214,8 @@ offset_right = 368.0
 offset_bottom = 123.0
 text = "0"
 label_settings = SubResource("LabelSettings_38ys3")
+
+[node name="CupPlayer" parent="." instance=ExtResource("16_rq07s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.70895, 0.795855, -0.0686498)
 
 [connection signal="coin_collected" from="Player" to="HUD" method="_on_coin_collected"]

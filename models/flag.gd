@@ -2,11 +2,9 @@ extends Node3D
 
 # Collecting coins
 
-func _on_body_entered(body):
+func _on_body_entered(_body):
 	print("goal!")
 
 
 # Rotating, animating up and down
 
-func _process(Delta):
-	pass
