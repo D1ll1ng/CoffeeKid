@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dc88fsr0pjppc"]
 
-[ext_resource type="Script" path="res://Goal.gd" id="1_w1rtu"]
+[ext_resource type="Script" path="res://objects/goal.gd" id="1_w1rtu"]
 [ext_resource type="PackedScene" uid="uid://c2y3uvwpkp61c" path="res://models/CupPlayer.blend" id="2_w7a4l"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sq8n0"]

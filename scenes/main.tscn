@@ -95,47 +95,49 @@ script = SubResource("GDScript_qmdx2")
 transform = Transform3D(2.95045, 0, 0, 0, 2.95045, 0, 0, 0, 2.95045, 7.84734, -1.29495, -2.00752)
 script = SubResource("GDScript_qmdx2")
 
-[node name="coin" parent="World" instance=ExtResource("10_fwhys")]
+[node name="Coins" type="Node3D" parent="World"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0.635, 0)
 
-[node name="coin11" parent="World" instance=ExtResource("10_fwhys")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.28518, 0.635, -1.34138)
+[node name="coin" parent="World/Coins" instance=ExtResource("10_fwhys")]
 
-[node name="coin12" parent="World" instance=ExtResource("10_fwhys")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.93626, 0.635, -2.24305)
+[node name="coin11" parent="World/Coins" instance=ExtResource("10_fwhys")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.28518, 0, -1.34138)
 
-[node name="coin13" parent="World" instance=ExtResource("10_fwhys")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.67435, 0.635, -3.0554)
+[node name="coin12" parent="World/Coins" instance=ExtResource("10_fwhys")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.93626, 0, -2.24305)
 
-[node name="coin10" parent="World" instance=ExtResource("10_fwhys")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0.635, 4)
+[node name="coin13" parent="World/Coins" instance=ExtResource("10_fwhys")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.67435, 0, -3.0554)
 
-[node name="coin2" parent="World" instance=ExtResource("10_fwhys")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.0437, 1.97005, -0.33003)
+[node name="coin10" parent="World/Coins" instance=ExtResource("10_fwhys")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 4)
 
-[node name="coin3" parent="World" instance=ExtResource("10_fwhys")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.0437, 1.97005, -1.33003)
+[node name="coin2" parent="World/Coins" instance=ExtResource("10_fwhys")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.0437, 1.33505, -0.33003)
 
-[node name="coin5" parent="World" instance=ExtResource("10_fwhys")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.7731, 2.54941, -2.28223)
+[node name="coin3" parent="World/Coins" instance=ExtResource("10_fwhys")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.0437, 1.33505, -1.33003)
 
-[node name="coin6" parent="World" instance=ExtResource("10_fwhys")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.8111, 1.6888, 0.328574)
+[node name="coin5" parent="World/Coins" instance=ExtResource("10_fwhys")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.7731, 1.91441, -2.28223)
 
-[node name="coin7" parent="World" instance=ExtResource("10_fwhys")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.8111, 2.6888, 0.328574)
+[node name="coin6" parent="World/Coins" instance=ExtResource("10_fwhys")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.8111, 1.0538, 0.328574)
 
-[node name="coin8" parent="World" instance=ExtResource("10_fwhys")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.9647, 0.801836, 3.99354)
+[node name="coin7" parent="World/Coins" instance=ExtResource("10_fwhys")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.8111, 2.0538, 0.328574)
 
-[node name="coin9" parent="World" instance=ExtResource("10_fwhys")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, -6)
+[node name="coin8" parent="World/Coins" instance=ExtResource("10_fwhys")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.9647, 0.166836, 3.99354)
 
-[node name="coin4" parent="World" instance=ExtResource("10_fwhys")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.0437, 1.97005, -2.33003)
+[node name="coin9" parent="World/Coins" instance=ExtResource("10_fwhys")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 4.365, -6)
+
+[node name="coin4" parent="World/Coins" instance=ExtResource("10_fwhys")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.0437, 1.33505, -2.33003)
 
 [node name="goal" parent="World" instance=ExtResource("13_x7fnf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.13598, 0.556154, -0.505169)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.2069, 0.186018, -0.505169)
 
 [node name="clouds" type="Node3D" parent="World"]
 
@@ -198,9 +200,5 @@ offset_bottom = 123.0
 text = "0"
 label_settings = SubResource("LabelSettings_38ys3")
 
-[connection signal="child_entered_tree" from="Player" to="World/goal" method="_on_player_child_entered_tree"]
 [connection signal="coin_collected" from="Player" to="HUD" method="_on_coin_collected"]
-[connection signal="tree_entered" from="Player" to="World/goal" method="_on_player_tree_entered"]
-[connection signal="area_shape_entered" from="World/goal" to="Player" method="_on_goal_area_shape_entered"]
-[connection signal="body_entered" from="World/goal" to="Player" method="_on_goal_body_entered"]
 [connection signal="body_entered" from="World/goal" to="World/goal" method="_on_body_entered"]

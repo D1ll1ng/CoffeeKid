@@ -80,7 +80,7 @@ func handle_effects():
 	
 	if is_on_floor():
 		if abs(velocity.x) > 1 or abs(velocity.z) > 1:
-			animation.play("walk", 0.5)
+			animation.play("walk", .0)
 			particles_trail.emitting = true
 			sound_footsteps.stream_paused = false
 		else:
