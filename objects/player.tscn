@@ -9,8 +9,8 @@
 [ext_resource type="AudioStream" uid="uid://cydjn1ct3hps2" path="res://sounds/walking.ogg" id="5_ics1s"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gdq8c"]
-radius = 0.3
-height = 1.0
+radius = 0.362181
+height = 1.05478
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_62rea"]
 render_priority = 0
@@ -38,7 +38,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 script = ExtResource("1_ffboj")
 
 [node name="Collider" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0376338, 0.515222, 0)
 shape = SubResource("CapsuleShape3D_gdq8c")
 
 [node name="Character" parent="." instance=ExtResource("2_nero3")]
@@ -46,7 +46,6 @@ shape = SubResource("CapsuleShape3D_gdq8c")
 [node name="CupPlayer2" parent="Character/character2/root" index="0" instance=ExtResource("3_iaarf")]
 
 [node name="leg-left" parent="Character/character2/root" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.125, 0.17625, -0.02375)
 material_override = SubResource("ShaderMaterial_62rea")
 
 [node name="leg-right" parent="Character/character2/root" index="2"]
