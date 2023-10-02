@@ -39,8 +39,4 @@ func _on_body_entered(body):
 		print("yeees")
 		
 		goto_scene("res://scenes/main.tscn")
-			
-		return
-		
-	else:
-		return
+

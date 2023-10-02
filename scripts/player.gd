@@ -93,15 +93,21 @@ func handle_effects():
 func handle_controls(delta):
 	
 	# Movement
-	
 	var input := Vector3.ZERO
+	var run_speed = 1
+	
+	
+	if Input.is_action_just_pressed("Sprint"):
+		run_speed = 2
+		print(movement_velocity , "Sprint!")
 	
 	input.x = Input.get_axis("move_left", "move_right")
 	input.z = Input.get_axis("move_forward", "move_back")
 	
-	input = input.rotated(Vector3.UP, view.rotation.y).normalized()
+	movement_velocity = input * movement_speed * run_speed * delta
+	print(movement_velocity)
 	
-	movement_velocity = input * movement_speed * delta
+
 	
 	# Jumping
 	
