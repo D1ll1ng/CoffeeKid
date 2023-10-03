@@ -97,8 +97,8 @@ func handle_controls(delta):
 	var run_speed = 1
 	
 	
-	if Input.is_action_just_pressed("Sprint"):
-		run_speed = 2
+	if Input.is_action_pressed("Sprint"):
+		run_speed = 1.75
 		print(movement_velocity , "Sprint!")
 	
 	input.x = Input.get_axis("move_left", "move_right")
