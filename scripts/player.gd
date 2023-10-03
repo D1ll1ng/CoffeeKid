@@ -18,6 +18,7 @@ var previously_floored = false
 
 var jump_single = true
 var jump_double = true
+var is_running = false
 
 var coins = 0
 
@@ -78,13 +79,19 @@ func handle_effects():
 	particles_trail.emitting = false
 	sound_footsteps.stream_paused = true
 	
+	
 	if is_on_floor():
 		if abs(velocity.x) > 1 or abs(velocity.z) > 1:
-			animation.play("walk", .0)
+			animation.play("walk", 0)
 			particles_trail.emitting = true
 			sound_footsteps.stream_paused = false
+			
+			if is_running == true:
+				print("Speed up animation")
+					
 		else:
 			animation.play("idle", 0.5)
+		
 	else:
 		animation.play("jump", 0.5)
 
@@ -96,16 +103,18 @@ func handle_controls(delta):
 	var input := Vector3.ZERO
 	var run_speed = 1
 	
-	
-	if Input.is_action_pressed("Sprint"):
-		run_speed = 1.75
-		print(movement_velocity , "Sprint!")
-	
 	input.x = Input.get_axis("move_left", "move_right")
 	input.z = Input.get_axis("move_forward", "move_back")
 	
+		# Sprinting
+	if Input.is_action_pressed("Sprint"):
+		run_speed = 1.75
+		is_running = true
+		
+	else:
+		is_running = false
+	
 	movement_velocity = input * movement_speed * run_speed * delta
-	print(movement_velocity)
 	
 
 	

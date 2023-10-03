@@ -17,7 +17,8 @@ var zoom = 10
 @onready var camera = $Camera
 
 func _ready():
-	
+
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	camera_rotation = rotation_degrees * 0 # Initial rotation
 	
 	pass
@@ -32,6 +33,19 @@ func _physics_process(delta):
 	camera.position = camera.position.lerp(Vector3(0, 0, zoom), 5 * delta)
 	
 	handle_input(delta)
+	
+	# Exit game
+	
+	if Input.is_action_pressed("Exit"):
+		get_tree().quit()
+
+	
+# Camera movement Mouse
+func _input(event):
+	if event is InputEventMouseMotion:
+		rotate(Vector3.UP, event.relative.x * 0.001)
+		rotate_object_local(Vector3.LEFT, event.relative.y * 0.001)
+		
 
 # Handle input
 
