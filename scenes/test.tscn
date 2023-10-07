@@ -1,6 +1,5 @@
-[gd_scene load_steps=16 format=3 uid="uid://c4768cn83g65b"]
+[gd_scene load_steps=15 format=3 uid="uid://conerkch1kivg"]
 
-[ext_resource type="Environment" uid="uid://bqnqgflivjvue" path="res://scenes/main-environment.tres" id="1_th40c"]
 [ext_resource type="PackedScene" uid="uid://dl2ed4gkybggf" path="res://objects/player.tscn" id="2_yxnwg"]
 [ext_resource type="Script" path="res://scripts/view.gd" id="3_xppnm"]
 [ext_resource type="PackedScene" uid="uid://cnymdajj1vsqm" path="res://objects/platform.tscn" id="4_s7vl2"]
@@ -8,13 +7,13 @@
 [ext_resource type="PackedScene" uid="uid://c8up71en5djgm" path="res://objects/platform_falling.tscn" id="6_8hi3w"]
 [ext_resource type="PackedScene" uid="uid://uqr4hswv6d2g" path="res://objects/platform_grass_large_round.tscn" id="7_kjktl"]
 [ext_resource type="PackedScene" uid="uid://dfpisimsgf5ce" path="res://objects/coin.tscn" id="8_d2pre"]
-[ext_resource type="PackedScene" uid="uid://dc88fsr0pjppc" path="res://scenes/area_3d.tscn" id="9_edphr"]
 [ext_resource type="PackedScene" uid="uid://dy017k58p20sk" path="res://objects/cloud.tscn" id="10_o4oga"]
+[ext_resource type="PackedScene" uid="uid://bw4db4gf3v8y1" path="res://objects/gate.tscn" id="10_s8hct"]
 [ext_resource type="Script" path="res://scripts/hud.gd" id="11_mmucr"]
 [ext_resource type="Texture2D" uid="uid://cd7oyc56ehkx1" path="res://sprites/coin.png" id="12_1xtwv"]
 [ext_resource type="FontFile" uid="uid://d0cxd77jybrcn" path="res://fonts/lilita_one_regular.ttf" id="13_n6xvw"]
 
-[sub_resource type="GDScript" id="GDScript_qmdx2"]
+[sub_resource type="GDScript" id="GDScript_8dymk"]
 script/source = "extends Node3D
 
 
@@ -24,121 +23,424 @@ func _ready():
 
 "
 
-[sub_resource type="LabelSettings" id="LabelSettings_38ys3"]
+[sub_resource type="LabelSettings" id="LabelSettings_2p0y7"]
 font = ExtResource("13_n6xvw")
 font_size = 48
 shadow_color = Color(0, 0, 0, 0.376471)
 shadow_offset = Vector2(2, 2)
 
-[node name="Main" type="Node3D"]
-
-[node name="Environment" type="WorldEnvironment" parent="."]
-environment = ExtResource("1_th40c")
-
-[node name="Player" parent="." node_paths=PackedStringArray("view") instance=ExtResource("2_yxnwg")]
-transform = Transform3D(-0.838338, 0, 0.545151, 0, 1, 0, -0.545151, 0, -0.838338, 9.2341, 0.5, 2.76165)
-view = NodePath("../View")
-
-[node name="View" type="Node3D" parent="." node_paths=PackedStringArray("target")]
-transform = Transform3D(0.707107, -0.298836, 0.640856, 0, 0.906308, 0.422618, -0.707107, -0.298836, 0.640856, 0, 0, 0)
-script = ExtResource("3_xppnm")
-target = NodePath("../Player")
-
-[node name="Camera" type="Camera3D" parent="View"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
-current = true
-fov = 40.0
+[node name="Node3D" type="Node3D"]
 
 [node name="World" type="Node3D" parent="."]
 
-[node name="platform" parent="World" instance=ExtResource("4_s7vl2")]
-transform = Transform3D(0.993085, 0, -0.117399, 0, 1, 0, 0.117399, 0, 0.993085, 0, 0, 0)
+[node name="platform2" parent="World" instance=ExtResource("4_s7vl2")]
+transform = Transform3D(1, 0, 0, 0, 0.999819, -0.0190055, 0, 0.0190055, 0.999819, 11.273, -0.165992, -25.32)
 
-[node name="platform5" parent="World" instance=ExtResource("4_s7vl2")]
-transform = Transform3D(0.993085, 0, -0.117399, 0, 1, 0, 0.117399, 0, 0.993085, 2.2823, 0, 0.244107)
+[node name="platform6" parent="World" instance=ExtResource("4_s7vl2")]
+transform = Transform3D(1, 0, 0, 0, 0.999819, -0.0190055, 0, 0.0190055, 0.999819, 18.9676, 14.4079, -54.0948)
+
+[node name="platform8" parent="World" instance=ExtResource("4_s7vl2")]
+transform = Transform3D(0.99509, 0.00188102, 0.0989545, 0, 0.999819, -0.0190055, -0.0989724, 0.0189122, 0.99491, 22.9611, 21.9627, -78.66)
+
+[node name="platform32" parent="World" instance=ExtResource("4_s7vl2")]
+transform = Transform3D(0.99509, 0.00188102, 0.0989545, 0, 0.999819, -0.0190055, -0.0989724, 0.0189122, 0.99491, 22.5177, 39.6758, -83.6392)
+
+[node name="platform11" parent="World" instance=ExtResource("4_s7vl2")]
+transform = Transform3D(0.99509, 0.00188102, 0.0989545, 0, 0.999819, -0.0190055, -0.0989724, 0.0189122, 0.99491, 22.7175, 21.9989, -80.6476)
+
+[node name="platform13" parent="World" instance=ExtResource("4_s7vl2")]
+transform = Transform3D(0.99509, 0.00188102, 0.0989545, 0, 0.999819, -0.0190055, -0.0989724, 0.0189122, 0.99491, 20.1745, 26.95, -80.6476)
+
+[node name="platform27" parent="World" instance=ExtResource("4_s7vl2")]
+transform = Transform3D(0.99509, 0.00188102, 0.0989545, 0, 0.999819, -0.0190055, -0.0989724, 0.0189122, 0.99491, 25.6695, 26.9639, -81.3743)
+
+[node name="platform28" parent="World" instance=ExtResource("4_s7vl2")]
+transform = Transform3D(0.99509, 0.00188102, 0.0989545, 0, 0.999819, -0.0190055, -0.0989724, 0.0189122, 0.99491, 20.1745, 32.9055, -80.6476)
+
+[node name="platform29" parent="World" instance=ExtResource("4_s7vl2")]
+transform = Transform3D(0.99509, 0.00188102, 0.0989545, 0, 0.999819, -0.0190055, -0.0989724, 0.0189122, 0.99491, 25.6695, 32.9193, -81.3743)
+
+[node name="platform30" parent="World" instance=ExtResource("4_s7vl2")]
+transform = Transform3D(0.99509, 0.00188102, 0.0989545, 0, 0.999819, -0.0190055, -0.0989724, 0.0189122, 0.99491, 20.1745, 38.4135, -80.6476)
+
+[node name="platform31" parent="World" instance=ExtResource("4_s7vl2")]
+transform = Transform3D(0.99509, 0.00188102, 0.0989545, 0, 0.999819, -0.0190055, -0.0989724, 0.0189122, 0.99491, 25.6695, 38.4273, -81.3743)
+
+[node name="platform7" parent="World" instance=ExtResource("4_s7vl2")]
+transform = Transform3D(1, 0, 0, 0, 1.03703, -0.0562135, 0, 0.0197128, 2.95722, 18.9676, 14.4079, -58.0081)
+
+[node name="platform9" parent="World" instance=ExtResource("4_s7vl2")]
+transform = Transform3D(0.300256, 0, 0, 0, 1.02574, -0.0240225, 0, 0.0194982, 1.26375, 15.8627, 14.4079, -58.9466)
+
+[node name="platform10" parent="World" instance=ExtResource("4_s7vl2")]
+transform = Transform3D(0.300256, 0, 0, 0, 1.02574, -0.0240225, 0, 0.0194982, 1.26375, 13.9468, 14.4079, -60.5902)
+
+[node name="platform12" parent="World" instance=ExtResource("4_s7vl2")]
+transform = Transform3D(0.300256, 0, 0, 0, 1.02574, -0.0240225, 0, 0.0194982, 1.26375, 11.0925, 14.4079, -61.5847)
+
+[node name="platform14" parent="World" instance=ExtResource("4_s7vl2")]
+transform = Transform3D(0.300256, 0, 0, 0, 1.02574, -0.0240225, 0, 0.0194982, 1.26375, 8.9393, 14.74, -58.1234)
+
+[node name="platform15" parent="World" instance=ExtResource("4_s7vl2")]
+transform = Transform3D(0.300256, 0, 0, 0, 1.02574, -0.0240225, 0, 0.0194982, 1.26375, 6.80755, 15.082, -56.4816)
+
+[node name="platform16" parent="World" instance=ExtResource("4_s7vl2")]
+transform = Transform3D(0.300256, 0, 0, 0, 1.02574, -0.0240225, 0, 0.0194982, 1.26375, 4.75593, 15.5869, -55.2831)
+
+[node name="platform17" parent="World" instance=ExtResource("4_s7vl2")]
+transform = Transform3D(0.300256, 0, 0, 0, 1.02574, -0.0240225, 0, 0.0194982, 1.26375, 2.45848, 16.0274, -54.4084)
+
+[node name="platform18" parent="World" instance=ExtResource("4_s7vl2")]
+transform = Transform3D(-0.0154473, -0.0194724, -1.26208, 0, 1.02574, -0.0240225, 0.299858, -0.00100312, -0.0650162, -3.93017, 23.5361, -80.6806)
+
+[node name="platform20" parent="World" instance=ExtResource("4_s7vl2")]
+transform = Transform3D(0.0669913, -0.0190067, -1.23189, 2.87728e-11, 1.02574, -0.0240225, 0.292687, 0.00435032, 0.28196, -3.93017, 24.9019, -78.3518)
+
+[node name="platform21" parent="World" instance=ExtResource("4_s7vl2")]
+transform = Transform3D(0.171635, -0.0159985, -1.03692, -9.60083e-11, 1.02574, -0.0240225, 0.246363, 0.0111458, 0.722398, -2.83194, 26.1717, -76.0382)
+
+[node name="platform22" parent="World" instance=ExtResource("4_s7vl2")]
+transform = Transform3D(0.244996, -0.0112722, -0.730591, 1.33436e-10, 1.02574, -0.0240225, 0.173582, 0.0159097, 1.03116, -1.58501, 27.7099, -74.515)
+
+[node name="platform23" parent="World" instance=ExtResource("4_s7vl2")]
+transform = Transform3D(0.28804, -0.00550515, -0.356809, 2.28588e-10, 1.02574, -0.0240225, 0.0847747, 0.0187049, 1.21233, 0.0960741, 29.0608, -73.3296)
+
+[node name="platform24" parent="World" instance=ExtResource("4_s7vl2")]
+transform = Transform3D(0.300022, -0.000768899, -0.0498349, 2.04811e-10, 1.02574, -0.0240225, 0.0118403, 0.019483, 1.26277, 1.92403, 30.2911, -72.8263)
+
+[node name="platform25" parent="World" instance=ExtResource("4_s7vl2")]
+transform = Transform3D(0.293901, 0.0039903, 0.258626, 2.22275e-10, 1.02574, -0.0240225, -0.0614474, 0.0190855, 1.237, 3.87064, 31.6972, -73.1025)
+
+[node name="platform26" parent="World" instance=ExtResource("4_s7vl2")]
+transform = Transform3D(0.261708, 0.0095578, 0.619476, 2.90704e-10, 1.02574, -0.0240225, -0.147182, 0.0169949, 1.10151, 6.08045, 32.8653, -74.3502)
+
+[node name="platform19" parent="World" instance=ExtResource("4_s7vl2")]
+transform = Transform3D(-0.0592039, -0.0191154, -1.23894, 2.87728e-11, 1.02574, -0.0240225, 0.294361, -0.00384462, -0.249184, -3.61671, 21.9103, -82.6485)
 
 [node name="platform-medium" parent="World" instance=ExtResource("5_vn3l0")]
-transform = Transform3D(0.996134, 0, 0.0878512, 0, 1, 0, -0.0878512, 0, 0.996134, -3, 0, 0)
+transform = Transform3D(0.334461, 0, 0.000202563, 0, 0.758258, 0, -0.000204301, 0, 0.331775, 9.9867, 7.11707, 18.3134)
 
 [node name="platform-medium4" parent="World" instance=ExtResource("5_vn3l0")]
-transform = Transform3D(0.929796, 0, -0.368076, 0, 1, 0, 0.368076, 0, 0.929796, 16.6343, 0.991941, 0.110922)
+transform = Transform3D(0.986778, 0, -0.0173891, 0, 0.844077, 0, 0.0192229, 0, 0.892641, 9.9867, 3.9039, 14.8627)
+
+[node name="platform-medium17" parent="World" instance=ExtResource("5_vn3l0")]
+transform = Transform3D(0.986778, 0, -0.0173891, 0, 0.844077, 0, 0.0192229, 0, 0.892641, 2.09708, 0.283302, -9.81294)
+
+[node name="platform-medium18" parent="World" instance=ExtResource("5_vn3l0")]
+transform = Transform3D(0.986778, 0, -0.0173891, 0, 0.844077, 0, 0.0192229, 0, 0.892641, -2.20303, 0.283302, -15.1867)
+
+[node name="platform-medium19" parent="World" instance=ExtResource("5_vn3l0")]
+transform = Transform3D(0.986778, 0, -0.0173891, 0, 0.844077, 0, 0.0192229, 0, 0.892641, -6.24451, 0.283302, -15.2608)
+
+[node name="platform-medium20" parent="World" instance=ExtResource("5_vn3l0")]
+transform = Transform3D(0.11775, -0.0889407, -0.126571, -0.00153558, 0.634669, -0.598564, 0.0208392, 0.549318, 0.671073, -13.0054, 2.42373, -24.7352)
+
+[node name="platform-medium21" parent="World" instance=ExtResource("5_vn3l0")]
+transform = Transform3D(0.0771596, -0.419822, -0.526643, -0.00153558, 0.634669, -0.598564, 0.0913551, 0.365254, 0.434748, -27.4942, 19.9811, -71.1104)
+
+[node name="platform-medium2" parent="World" instance=ExtResource("5_vn3l0")]
+transform = Transform3D(2.13597, 0, 0.211768, 0, 14.3111, 0, -0.211768, 0, 2.13597, 31.9203, 5.92344, -60.1328)
 
 [node name="platform-medium8" parent="World" instance=ExtResource("5_vn3l0")]
-transform = Transform3D(6.91008, 0, -2.73548, 0, 27.2645, 0, 2.73548, 0, 6.91008, 9.58997, -15.2843, -17.0854)
+transform = Transform3D(2.13597, 0, 0.211768, 0, 10.8151, 0, -0.211768, 0, 2.13597, 22.8503, 16.4781, -71.3549)
+
+[node name="platform-medium24" parent="World" instance=ExtResource("5_vn3l0")]
+transform = Transform3D(1.86632, 0, -1.06022, 0, 10.8151, 0, 1.06022, 0, 1.86632, 8.22949, 21.7684, -78.2549)
+
+[node name="platform-medium14" parent="World" instance=ExtResource("5_vn3l0")]
+transform = Transform3D(2.13597, 0, 0.211768, 0, 10.8151, 0, -0.211768, 0, 2.13597, 13.7742, 53.4649, -102.68)
+
+[node name="platform-medium15" parent="World" instance=ExtResource("5_vn3l0")]
+transform = Transform3D(2.13597, 0, 0.211768, 0, 10.8151, 0, -0.211768, 0, 2.13597, -0.346296, 68.488, -97.72)
+
+[node name="platform-medium16" parent="World" instance=ExtResource("5_vn3l0")]
+transform = Transform3D(2.13597, 0, 0.211768, 0, 18.8343, 0, -0.211768, 0, 2.13597, 4.67489, 67.6646, -102.401)
+
+[node name="platform-medium9" parent="World" instance=ExtResource("5_vn3l0")]
+transform = Transform3D(2.13597, 0, 0.211768, 0, 7.13916, 0, -0.211768, 0, 2.13597, -12.011, 15.9403, -71.3549)
+
+[node name="platform-medium13" parent="World" instance=ExtResource("5_vn3l0")]
+transform = Transform3D(2.13597, 0, 0.211768, 0, 7.13916, 0, -0.211768, 0, 2.13597, -28.8076, 15.9403, -70.1811)
+
+[node name="platform-medium10" parent="World" instance=ExtResource("5_vn3l0")]
+transform = Transform3D(2.13597, 0, 0.211768, 0, 7.13916, 0, -0.211768, 0, 2.13597, -8.39657, 14.818, -67.074)
+
+[node name="platform-medium22" parent="World" instance=ExtResource("5_vn3l0")]
+transform = Transform3D(1.93899, 0, -0.920616, 0, 0.891294, 0, 0.920616, 0, 1.93899, -6.35576, 20.2466, -87.5136)
+
+[node name="platform-medium23" parent="World" instance=ExtResource("5_vn3l0")]
+transform = Transform3D(0.948928, 0, -0.450543, 0, 0.713767, 0, 0.450543, 0, 0.948928, -9.57643, 20.2466, -83.2194)
+
+[node name="platform-medium3" parent="World" instance=ExtResource("5_vn3l0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 3.15431, 10.8018, -0.131691, -19.6366)
 
 [node name="platform-medium5" parent="World" instance=ExtResource("5_vn3l0")]
-transform = Transform3D(0.929796, 0, -0.368076, 0, 1, 0, 0.368076, 0, 0.929796, 11.825, 0.991941, -6.88143)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 3.15431, 10.8018, -0.131691, -33.3341)
 
 [node name="platform-medium6" parent="World" instance=ExtResource("5_vn3l0")]
-transform = Transform3D(0.929796, 0, -0.368076, 0, 1, 0, 0.368076, 0, 0.929796, 13.493, 0.991941, -11.0949)
+transform = Transform3D(0.0246266, 0.324693, -2.9824, -0.00845415, 0.945819, 1.02384, 0.999661, 0, 0.0821299, 4.99057, 1.61608, -41.0354)
+
+[node name="platform-medium11" parent="World" instance=ExtResource("5_vn3l0")]
+transform = Transform3D(0.0238762, -0.398893, -2.89151, 0.0103861, 0.916997, -1.25781, 0.999661, 1.48565e-09, 0.0821299, 25.3444, 8.1512, -58.4351)
+
+[node name="platform-medium12" parent="World" instance=ExtResource("5_vn3l0")]
+transform = Transform3D(0.0244501, 0.343807, -2.96102, -0.00895183, 0.93904, 1.08411, 0.999661, 2.22865e-09, 0.0821299, 24.095, 12.2726, -54.4908)
 
 [node name="platform-medium7" parent="World" instance=ExtResource("5_vn3l0")]
-transform = Transform3D(0.929796, 0, -0.368076, 0, 1, 0, 0.368076, 0, 0.929796, 15.1475, 0.991941, -15.2744)
+transform = Transform3D(-0.56271, 0.263824, -2.47117, -0.00845415, 0.945819, 1.02384, 0.826611, 0.189269, -1.67176, -6.00364, 4.65045, -43.6318)
 
-[node name="platform-falling3" parent="World" instance=ExtResource("6_8hi3w")]
-transform = Transform3D(0.939693, 0, 0.34202, 0, 1, 0, -0.34202, 0, 0.939693, 19.8238, 1.8303, -2.32317)
+[node name="platform-falling" parent="World" instance=ExtResource("6_8hi3w")]
+transform = Transform3D(0.998471, 0, 0.0552811, 0, 1, 0, -0.0552811, 0, 0.998471, 14.3458, 0.419294, -42.0373)
 
-[node name="platform-grass-large-round" parent="World" instance=ExtResource("7_kjktl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.5765, 1, -2.01738)
-script = SubResource("GDScript_qmdx2")
+[node name="platform-falling15" parent="World" instance=ExtResource("6_8hi3w")]
+transform = Transform3D(0.998471, 0, 0.0552811, 0, 1, 0, -0.0552811, 0, 0.998471, 11.6986, 0.419294, -40.9424)
+
+[node name="platform-falling4" parent="World" instance=ExtResource("6_8hi3w")]
+transform = Transform3D(0.998471, 0, 0.0552811, 0, 1, 0, -0.0552811, 0, 0.998471, 17.2442, 1.70148, -41.8148)
+
+[node name="platform-falling5" parent="World" instance=ExtResource("6_8hi3w")]
+transform = Transform3D(0.998471, 0, 0.0552811, 0, 1, 0, -0.0552811, 0, 0.998471, 19.6839, 1.70148, -39.9629)
+
+[node name="platform-falling6" parent="World" instance=ExtResource("6_8hi3w")]
+transform = Transform3D(0.998471, 0, 0.0552811, 0, 1, 0, -0.0552811, 0, 0.998471, 21.972, 2.42809, -42.3796)
+
+[node name="platform-falling7" parent="World" instance=ExtResource("6_8hi3w")]
+transform = Transform3D(0.998471, 0, 0.0552811, 0, 1, 0, -0.0552811, 0, 0.998471, 24.0596, 3.34214, -44.7991)
+
+[node name="platform-falling8" parent="World" instance=ExtResource("6_8hi3w")]
+transform = Transform3D(0.998471, 0, 0.0552811, 0, 1, 0, -0.0552811, 0, 0.998471, 26.3675, 4.49906, -47.1493)
+
+[node name="platform-falling9" parent="World" instance=ExtResource("6_8hi3w")]
+transform = Transform3D(0.998471, 0, 0.0552811, 0, 1, 0, -0.0552811, 0, 0.998471, 26.411, 5.57922, -49.9479)
+
+[node name="platform-falling10" parent="World" instance=ExtResource("6_8hi3w")]
+transform = Transform3D(0.998471, 0, 0.0552811, 0, 1, 0, -0.0552811, 0, 0.998471, 32.6473, 9.02473, -56.166)
+
+[node name="platform-falling11" parent="World" instance=ExtResource("6_8hi3w")]
+transform = Transform3D(0.998471, 0, 0.0552811, 0, 1, 0, -0.0552811, 0, 0.998471, 36.5451, 9.02473, -56.166)
+
+[node name="platform-falling12" parent="World" instance=ExtResource("6_8hi3w")]
+transform = Transform3D(0.998471, 0, 0.0552811, 0, 1, 0, -0.0552811, 0, 0.998471, 36.5451, 9.02473, -59.7929)
+
+[node name="platform-falling13" parent="World" instance=ExtResource("6_8hi3w")]
+transform = Transform3D(0.998471, 0, 0.0552811, 0, 1, 0, -0.0552811, 0, 0.998471, 36.5451, 10.745, -62.0306)
+
+[node name="platform-falling14" parent="World" instance=ExtResource("6_8hi3w")]
+transform = Transform3D(0.998471, 0, 0.0552811, 0, 1, 0, -0.0552811, 0, 0.998471, 36.043, 12.0097, -64.2623)
 
 [node name="platform-grass-large-round2" parent="World" instance=ExtResource("7_kjktl")]
-transform = Transform3D(2.95045, 0, 0, 0, 2.95045, 0, 0, 0, 2.95045, 7.84734, -1.29495, -2.00752)
-script = SubResource("GDScript_qmdx2")
+transform = Transform3D(5.39816, 0, 0, 0, 5.39816, 0, 0, 0, 5.39816, 10.6667, -2.31085, -2.00752)
+script = SubResource("GDScript_8dymk")
+
+[node name="platform-grass-large-round14" parent="World" instance=ExtResource("7_kjktl")]
+transform = Transform3D(2.11934, 0, 0, 0, 2.11934, 0, 0, 0, 2.11934, -12.9145, 0.989143, -23.7284)
+script = SubResource("GDScript_8dymk")
 
 [node name="platform-grass-large-round3" parent="World" instance=ExtResource("7_kjktl")]
-transform = Transform3D(2.95045, 0, 0, 0, 2.95045, 0, 0, 0, 2.95045, 21.627, -1.29495, -2.00752)
-script = SubResource("GDScript_qmdx2")
+transform = Transform3D(8.43196, 0, 0, 0, 24.4795, 0, 0, 0, 5.39816, 7.89469, -5.50776, -57.9785)
+script = SubResource("GDScript_8dymk")
+
+[node name="platform-grass-large-round4" parent="World" instance=ExtResource("7_kjktl")]
+transform = Transform3D(5.1491, 0, 0, 0, 20.8225, 0, 0, 0, 5.39816, -0.264133, 7.32968, -68.2579)
+script = SubResource("GDScript_8dymk")
+
+[node name="platform-grass-large-round5" parent="World" instance=ExtResource("7_kjktl")]
+transform = Transform3D(3.09189, 0, 0, 0, 20.8225, 0, 0, 0, 3.51925, 18.5274, 6.91509, -68.2579)
+script = SubResource("GDScript_8dymk")
+
+[node name="platform-grass-large-round9" parent="World" instance=ExtResource("7_kjktl")]
+transform = Transform3D(5.1491, 0, 0, 0, 20.8225, 0, 0, 0, 5.39816, -0.264133, 30.1482, -91.5682)
+script = SubResource("GDScript_8dymk")
+
+[node name="platform-grass-large-round10" parent="World" instance=ExtResource("7_kjktl")]
+transform = Transform3D(3.09189, 0, 0, 0, 20.8225, 0, 0, 0, 3.51925, 18.5274, 29.7045, -91.5682)
+script = SubResource("GDScript_8dymk")
+
+[node name="platform-grass-large-round6" parent="World" instance=ExtResource("7_kjktl")]
+transform = Transform3D(2.14701, 0, 0, 0, 15.1698, 0, 0, 0, 2.80959, 12.5304, 17.154, -72.9975)
+script = SubResource("GDScript_8dymk")
+
+[node name="platform-grass-large-round8" parent="World" instance=ExtResource("7_kjktl")]
+transform = Transform3D(3.93736, 0, 0, 0, 14.7616, 0, 0, 0, 5.15245, 1.15394, 13.2443, -76.7181)
+script = SubResource("GDScript_8dymk")
+
+[node name="platform-grass-large-round7" parent="World" instance=ExtResource("7_kjktl")]
+transform = Transform3D(2.14701, 0, 0, 0, 34.7459, 0, 0, 0, 2.80959, 2.31407, 17.154, -80.8867)
+script = SubResource("GDScript_8dymk")
+
+[node name="platform-grass-large-round11" parent="World" instance=ExtResource("7_kjktl")]
+transform = Transform3D(2.14701, 0, 0, 0, 28.9463, 0, 0, 0, 2.80959, 10.7348, 40.0687, -95.231)
+script = SubResource("GDScript_8dymk")
+
+[node name="platform-grass-large-round12" parent="World" instance=ExtResource("7_kjktl")]
+transform = Transform3D(3.93736, 0, 0, 0, 22.0029, 0, 0, 0, 5.15245, 4.22701, 39.4367, -96.4067)
+script = SubResource("GDScript_8dymk")
+
+[node name="platform-grass-large-round13" parent="World" instance=ExtResource("7_kjktl")]
+transform = Transform3D(2.92709, 0, 0, 0, 44.9685, 0, 0, 0, 2.80959, 4.42871, 48.9111, -100.575)
+script = SubResource("GDScript_8dymk")
+
+[node name="platform-grass-large-round15" parent="World" instance=ExtResource("7_kjktl")]
+transform = Transform3D(1.49016, 0, 0, 0, 22.8931, 0, 0, 0, 1.43034, 4.42871, 71.0434, -107.057)
+script = SubResource("GDScript_8dymk")
 
 [node name="Coins" type="Node3D" parent="World"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0.635, 0)
 
 [node name="coin11" parent="World/Coins" instance=ExtResource("8_d2pre")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.28518, 0, -1.34138)
+transform = Transform3D(1, 0, 0, 0, 0.99964, 0.0268399, 0, -0.0268399, 0.99964, 2.76682, 0, -1.34138)
 
 [node name="coin12" parent="World/Coins" instance=ExtResource("8_d2pre")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.93626, 0, -2.24305)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.4179, 0, -2.24305)
 
 [node name="coin13" parent="World/Coins" instance=ExtResource("8_d2pre")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.67435, 0, -3.0554)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.7393, 1.76713, -40.0664)
 
-[node name="coin2" parent="World/Coins" instance=ExtResource("8_d2pre")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5328, 1.33505, -0.347412)
+[node name="coin14" parent="World/Coins" instance=ExtResource("8_d2pre")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.624, 0.443612, -42.1146)
 
-[node name="coin5" parent="World/Coins" instance=ExtResource("8_d2pre")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.8034, 1.91441, -2.29961)
+[node name="coin15" parent="World/Coins" instance=ExtResource("8_d2pre")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.1934, 3.60528, -44.8555)
 
-[node name="coin6" parent="World/Coins" instance=ExtResource("8_d2pre")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.7654, 1.0538, 0.311192)
+[node name="coin16" parent="World/Coins" instance=ExtResource("8_d2pre")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.1238, 12.0507, -64.2967)
 
-[node name="coin7" parent="World/Coins" instance=ExtResource("8_d2pre")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.7654, 2.0538, 0.311192)
+[node name="platform-falling16" parent="World/Coins" instance=ExtResource("6_8hi3w")]
+transform = Transform3D(0.998471, 0, 0.0552811, 0, 1, 0, -0.0552811, 0, 0.998471, 30.654, 18.2941, -66.706)
 
-[node name="coin8" parent="World/Coins" instance=ExtResource("8_d2pre")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.6118, 0.166836, 3.97616)
+[node name="platform-falling17" parent="World/Coins" instance=ExtResource("6_8hi3w")]
+transform = Transform3D(0.996091, 0, 0.0883378, 0, 1, 0, -0.0883378, 0, 0.996091, 30.7469, 19.8405, -69.658)
 
-[node name="platform-falling4" parent="World/Coins" instance=ExtResource("6_8hi3w")]
-transform = Transform3D(4.18241, 0, 1.52227, 0, 2.60565, 0, -1.52227, 0, 4.18241, 8.61082, -3.80359, -64.5356)
+[node name="platform-falling18" parent="World/Coins" instance=ExtResource("6_8hi3w")]
+transform = Transform3D(0.994789, 0, 0.101959, 0, 1, 0, -0.101959, 0, 0.994789, 22.2208, 21.9558, -69.3377)
 
-[node name="platform-falling5" parent="World/Coins" instance=ExtResource("6_8hi3w")]
-transform = Transform3D(4.18241, 0, 1.52227, 0, 2.60565, 0, -1.52227, 0, 4.18241, 13.3573, -3.80359, -51.4947)
+[node name="platform-falling19" parent="World/Coins" instance=ExtResource("6_8hi3w")]
+transform = Transform3D(0.993721, 0, 0.111885, 0, 1, 0, -0.111885, 0, 0.993721, 22.2208, 23.0063, -72.5803)
 
-[node name="platform-falling6" parent="World/Coins" instance=ExtResource("6_8hi3w")]
-transform = Transform3D(4.18241, 0, 1.52227, 0, 2.60565, 0, -1.52227, 0, 4.18241, 17.6195, -3.80359, -39.7844)
+[node name="coin17" parent="World/Coins" instance=ExtResource("8_d2pre")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.8369, 20.8422, -69.5632)
 
-[node name="platform-falling7" parent="World/Coins" instance=ExtResource("6_8hi3w")]
-transform = Transform3D(4.18241, 0, 1.52227, 0, 2.60565, 0, -1.52227, 0, 4.18241, 21.5255, -3.80359, -29.0528)
+[node name="platform-falling20" parent="World/Coins" instance=ExtResource("6_8hi3w")]
+transform = Transform3D(0.417692, 0, -0.908589, 0, 1, 0, 0.908589, 0, 0.417692, 12.9496, 35.0254, -80.8)
 
-[node name="platform-grass-large-round4" parent="World/Coins" instance=ExtResource("7_kjktl")]
-transform = Transform3D(4.45082, 0, 0, 0, 16.5778, 0, 0, 0, 4.45082, 18.3972, 1.0994, -71.1397)
-script = SubResource("GDScript_qmdx2")
+[node name="platform-falling21" parent="World/Coins" instance=ExtResource("6_8hi3w")]
+transform = Transform3D(0.447572, 0, -0.894248, 0, 1, 0, 0.894248, 0, 0.447572, 15.0432, 36.1245, -81.9053)
 
-[node name="platform-grass-large-round5" parent="World/Coins" instance=ExtResource("7_kjktl")]
-transform = Transform3D(13.1319, 0, 0, 0, 48.9121, 0, 0, 0, 13.1319, 5.26947, -29.2695, -132.329)
-script = SubResource("GDScript_qmdx2")
+[node name="coin27" parent="World/Coins" instance=ExtResource("8_d2pre")]
+transform = Transform3D(0.366826, 0, -0.93029, 0, 1, 0, 0.93029, 0, 0.366826, 15.2375, 37.1262, -81.8482)
 
-[node name="goal" parent="World" instance=ExtResource("9_edphr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.72017, 0.191642, -7.55171)
+[node name="platform-falling22" parent="World/Coins" instance=ExtResource("6_8hi3w")]
+transform = Transform3D(-0.521427, 0, -0.853296, 0, 1, 0, 0.853296, 0, -0.521427, 17.3859, 37.1054, -83.2226)
+
+[node name="coin28" parent="World/Coins" instance=ExtResource("8_d2pre")]
+transform = Transform3D(-0.594767, 0, -0.803898, 0, 1, 0, 0.803898, 0, -0.594767, 17.4414, 38.1071, -83.1612)
+
+[node name="platform-falling23" parent="World/Coins" instance=ExtResource("6_8hi3w")]
+transform = Transform3D(0.973074, 0, -0.230492, 0, 1, 0, 0.230492, 0, 0.973074, 19.8968, 38.0241, -82.1334)
+
+[node name="coin45" parent="World/Coins" instance=ExtResource("8_d2pre")]
+transform = Transform3D(0.948909, 0, -0.31555, 0, 1, 0, 0.31555, 0, 0.948909, 19.8463, 39.0258, -81.8545)
+
+[node name="coin18" parent="World/Coins" instance=ExtResource("8_d2pre")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.251, 21.8458, -71.3151)
+
+[node name="coin21" parent="World/Coins" instance=ExtResource("8_d2pre")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.2356, 22.5858, -69.3868)
+
+[node name="coin22" parent="World/Coins" instance=ExtResource("8_d2pre")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.2356, 23.6531, -72.5108)
+
+[node name="coin19" parent="World/Coins" instance=ExtResource("8_d2pre")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.0276, 21.8458, -70.8465)
+
+[node name="coin29" parent="World/Coins" instance=ExtResource("8_d2pre")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.7492, 21.8458, -80.7065)
+
+[node name="coin30" parent="World/Coins" instance=ExtResource("8_d2pre")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.1367, 26.9424, -80.6412)
+
+[node name="coin31" parent="World/Coins" instance=ExtResource("8_d2pre")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.7363, 26.9424, -81.3716)
+
+[node name="coin32" parent="World/Coins" instance=ExtResource("8_d2pre")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.1367, 32.8496, -80.6412)
+
+[node name="coin33" parent="World/Coins" instance=ExtResource("8_d2pre")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.7363, 32.8496, -81.3716)
+
+[node name="coin34" parent="World/Coins" instance=ExtResource("8_d2pre")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.1367, 38.4317, -80.6412)
+
+[node name="coin35" parent="World/Coins" instance=ExtResource("8_d2pre")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.7363, 38.4317, -81.3716)
+
+[node name="coin36" parent="World/Coins" instance=ExtResource("8_d2pre")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.9663, 36.2905, -80.6412)
+
+[node name="coin37" parent="World/Coins" instance=ExtResource("8_d2pre")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.9663, 35.1778, -80.6412)
+
+[node name="coin38" parent="World/Coins" instance=ExtResource("8_d2pre")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.9663, 33.9145, -80.6412)
+
+[node name="coin20" parent="World/Coins" instance=ExtResource("8_d2pre")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.3302, 21.8458, -70.4606)
+
+[node name="coin23" parent="World/Coins" instance=ExtResource("8_d2pre")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.02547, 21.8458, -70.9669)
+
+[node name="coin24" parent="World/Coins" instance=ExtResource("8_d2pre")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.02547, 20.8461, -70.9669)
+
+[node name="coin25" parent="World/Coins" instance=ExtResource("8_d2pre")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.02547, 19.7522, -70.9669)
+
+[node name="coin26" parent="World/Coins" instance=ExtResource("8_d2pre")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.4697, 20.2412, -83.1489)
+
+[node name="platform-medium25" parent="World/Coins" instance=ExtResource("5_vn3l0")]
+transform = Transform3D(1.02181, 0, 0.243655, 0, 0.713767, 0, -0.243655, 0, 1.02181, 9.27975, 45.1586, -83.2194)
+
+[node name="platform-medium26" parent="World/Coins" instance=ExtResource("5_vn3l0")]
+transform = Transform3D(1.04056, 0, -0.143816, 0, 0.713767, 0, 0.143816, 0, 1.04056, 5.91453, 43.8756, -82.6569)
+
+[node name="platform-medium27" parent="World/Coins" instance=ExtResource("5_vn3l0")]
+transform = Transform3D(0.832521, 0, -0.640595, 0, 0.713767, 0, 0.640595, 0, 0.832521, 1.21185, 43.8756, -84.7784)
+
+[node name="platform-medium28" parent="World/Coins" instance=ExtResource("5_vn3l0")]
+transform = Transform3D(0.477517, 0, -0.935645, 0, 0.713767, 0, 0.935645, 0, 0.477517, -2.0188, 43.8756, -88.7678)
+
+[node name="platform-medium29" parent="World/Coins" instance=ExtResource("5_vn3l0")]
+transform = Transform3D(0.000171619, 0.14784, -1.02767, -2.01574, -0.00550796, -0.00180762, -0.0159366, 0.698267, 0.21757, -3.55774, 44.0998, -94.3821)
+
+[node name="platform-medium30" parent="World/Coins" instance=ExtResource("5_vn3l0")]
+transform = Transform3D(0.000171619, 0.152639, -1.02615, -2.01574, -0.00549938, -0.00186332, -0.0159366, 0.697233, 0.224631, -3.14084, 41.0891, -91.5009)
+
+[node name="coin39" parent="World/Coins" instance=ExtResource("8_d2pre")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.31319, 45.3882, -83.1489)
+
+[node name="coin41" parent="World/Coins" instance=ExtResource("8_d2pre")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.68681, 43.3074, -92.7136)
+
+[node name="coin42" parent="World/Coins" instance=ExtResource("8_d2pre")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.68681, 41.6501, -92.7136)
+
+[node name="coin43" parent="World/Coins" instance=ExtResource("8_d2pre")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.68681, 44.9089, -92.7136)
+
+[node name="platform-medium31" parent="World/Coins" instance=ExtResource("5_vn3l0")]
+transform = Transform3D(0.801243, 0, 0.679311, 0, 0.713767, 0, -0.679311, 0, 0.801243, 13.6127, 46.0341, -85.1313)
+
+[node name="platform-medium32" parent="World/Coins" instance=ExtResource("5_vn3l0")]
+transform = Transform3D(0, -0.49052, 0.763095, 1.05045, -3.11997e-08, -2.98023e-08, 0, 0.518511, 0.7219, 15.7443, 49.0811, -87.4264)
+
+[node name="coin40" parent="World/Coins" instance=ExtResource("8_d2pre")]
+transform = Transform3D(0.946085, 0, 0.323917, 0, 1, 0, -0.323917, 0, 0.946085, 13.6129, 46.6148, -85.237)
+
+[node name="coin44" parent="World/Coins" instance=ExtResource("8_d2pre")]
+transform = Transform3D(0.946085, 0, 0.323917, 0, 1, 0, -0.323917, 0, 0.946085, 15.0142, 49.0718, -86.377)
+
+[node name="Gate" parent="World" instance=ExtResource("10_s8hct")]
 
 [node name="clouds" type="Node3D" parent="World"]
 
@@ -149,25 +451,97 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5495, 1.10741, -2.666)
 transform = Transform3D(1.27593, -0.401864, 0.422933, 0.471408, 1.30937, -0.178025, -0.343721, 0.304009, 1.32582, 3.33538, 1.37146, -4.1932)
 
 [node name="cube15" parent="World/clouds" instance=ExtResource("10_o4oga")]
-transform = Transform3D(-0.523491, 0.000626924, -0.852031, 0.000348132, 1, 0.000521904, 0.852031, -2.33813e-05, -0.523491, 13.8506, 1.1075, -4.59015)
+transform = Transform3D(0.474738, 0.000294094, -0.880127, 0.000348132, 1, 0.000521904, 0.880127, -0.000554156, 0.474738, 39.9218, 8.68239, -55.1587)
 
 [node name="cube16" parent="World/clouds" instance=ExtResource("10_o4oga")]
-transform = Transform3D(-0.374782, -0.0478318, -1.35115, 0.471673, 1.30939, -0.177186, 1.26706, -0.501577, -0.333699, 14.2171, 1.37137, -2.26905)
+transform = Transform3D(0.908392, -0.457961, -0.966159, 0.471673, 1.30939, -0.177186, 0.959545, -0.210093, 1.00175, 42.1138, 8.94626, -54.3121)
+
+[node name="cube10" parent="World/clouds" instance=ExtResource("10_o4oga")]
+transform = Transform3D(1.32811, 0.370441, 0.259369, -0.293866, 1.3186, -0.37854, -0.34372, 0.30401, 1.32582, 0.470923, -1.66075, -44.1257)
 
 [node name="cube11" parent="World/clouds" instance=ExtResource("10_o4oga")]
-transform = Transform3D(0.476646, 0.924607, 0.941422, -0.929853, 0.945559, -0.457882, -0.93624, -0.468385, 0.934042, -11.1815, 2.03819, 9.2812)
+transform = Transform3D(-1.05752, -0.822054, 0.417421, -0.921911, 0.949482, -0.465756, -0.00959253, -0.625361, -1.25586, -6.68173, 2.04042, -0.126383)
 
 [node name="cube12" parent="World/clouds" instance=ExtResource("10_o4oga")]
-transform = Transform3D(-1.02876, -0.695523, 0.652886, -0.929853, 0.945557, -0.457881, -0.213027, -0.768461, -1.15432, -10.9158, 2.79508, 11.515)
+transform = Transform3D(0.257251, -0.374083, -1.3275, -0.92802, 0.952015, -0.448114, 1.02027, 0.960256, -0.0728803, -4.79056, 2.77842, -1.35609)
 
 [node name="cube13" parent="World/clouds" instance=ExtResource("10_o4oga")]
-transform = Transform3D(1.56209, -1.37982, 1.71508, 1.97375, 1.80907, -0.342241, -0.974547, 1.4522, 2.05595, -14.3045, 2.03819, -8.25929)
+transform = Transform3D(1.56209, -1.37982, 1.71508, 1.97375, 1.80907, -0.342241, -0.974547, 1.4522, 2.05595, -3.25838, -1.66075, -44.4306)
 
 [node name="cube14" parent="World/clouds" instance=ExtResource("10_o4oga")]
-transform = Transform3D(1.56209, -1.37982, 1.71508, 1.97375, 1.80907, -0.342241, -0.974547, 1.4522, 2.05595, -15.866, 2.03819, 7.83702)
+transform = Transform3D(-1.55028, 1.92657, 1.08189, 1.98191, 1.79674, -0.359596, -0.97684, 0.587856, -2.44658, -5.90343, 2.05262, 4.71348)
+
+[node name="cube23" parent="World/clouds" instance=ExtResource("10_o4oga")]
+transform = Transform3D(0.772525, 0.182636, -1.15681, -0.921911, 0.949482, -0.465756, 0.722252, 1.01661, 0.642825, 19.8985, 2.04042, 2.56524)
+
+[node name="cube24" parent="World/clouds" instance=ExtResource("10_o4oga")]
+transform = Transform3D(0.500492, 0.924971, 0.928601, -0.92802, 0.952015, -0.448114, -0.925548, -0.454377, 0.951454, 17.6737, 2.77842, 2.19212)
+
+[node name="cube25" parent="World/clouds" instance=ExtResource("10_o4oga")]
+transform = Transform3D(0.481375, -1.02163, -2.45155, 1.98191, 1.79674, -0.359596, 1.76801, -1.73595, 1.07058, 22.5983, 2.05262, -1.52635)
+
+[node name="cube17" parent="World/clouds" instance=ExtResource("10_o4oga")]
+transform = Transform3D(2.31976, 4.49992, 4.58176, -4.52545, 4.60189, -2.22844, -4.55654, -2.27956, 4.54584, 3.42846, 79.1313, -87.4895)
+
+[node name="cube18" parent="World/clouds" instance=ExtResource("10_o4oga")]
+transform = Transform3D(-5.00682, -3.38501, 3.1775, -4.52545, 4.60188, -2.22844, -1.03677, -3.73998, -5.6179, -4.19277, 82.815, -76.618)
+
+[node name="cube19" parent="World/clouds" instance=ExtResource("10_o4oga")]
+transform = Transform3D(7.60246, -6.71537, 8.34703, 9.60594, 8.80447, -1.66563, -4.74297, 7.06764, 10.006, -28.2846, 79.1313, -94.5181)
+
+[node name="cube34" parent="World/clouds" instance=ExtResource("10_o4oga")]
+transform = Transform3D(7.60246, -6.71537, 8.34703, -0.329411, 10.0839, 8.41276, -10.708, -5.07801, 5.66743, -77.6066, 55.0597, -94.5181)
+
+[node name="cube20" parent="World/clouds" instance=ExtResource("10_o4oga")]
+transform = Transform3D(-1.68075, -4.14942, -5.15563, -4.52545, 4.60189, -2.22844, 4.82892, 2.86845, -3.88287, 30.2319, 79.1313, -111.206)
+
+[node name="cube21" parent="World/clouds" instance=ExtResource("10_o4oga")]
+transform = Transform3D(5.10114, 3.86069, -2.38671, -4.52545, 4.60188, -2.22844, 0.348565, 3.24666, 5.99674, 34.1115, 82.815, -121.802)
+
+[node name="cube32" parent="World/clouds" instance=ExtResource("10_o4oga")]
+transform = Transform3D(-1.68075, -4.14942, -5.15563, -4.52545, 4.60189, -2.22844, 4.82892, 2.86845, -3.88287, -12.9903, 55.032, -86.9011)
+
+[node name="cube33" parent="World/clouds" instance=ExtResource("10_o4oga")]
+transform = Transform3D(5.10114, 3.86069, -2.38671, -4.52545, 4.60188, -2.22844, 0.348565, 3.24666, 5.99674, -9.11073, 58.7157, -97.4971)
+
+[node name="cube22" parent="World/clouds" instance=ExtResource("10_o4oga")]
+transform = Transform3D(-6.88942, 5.69544, -9.62625, 9.60594, 8.80447, -1.66563, 5.72966, -7.91263, -8.78228, 60.4072, 79.1313, -107.333)
+
+[node name="cube26" parent="World/clouds" instance=ExtResource("10_o4oga")]
+transform = Transform3D(1.53387, -1.61698, -6.45413, -4.52545, 4.60189, -2.22844, 4.87756, 4.77819, -0.0379088, 16.2525, 23.0246, -117.404)
+
+[node name="cube27" parent="World/clouds" instance=ExtResource("10_o4oga")]
+transform = Transform3D(4.30079, 5.03542, 1.66454, -4.52545, 4.60188, -2.22844, -2.7652, 0.300407, 6.23591, 14.0826, 26.7083, -130.503)
+
+[node name="cube28" parent="World/clouds" instance=ExtResource("10_o4oga")]
+transform = Transform3D(-2.10749, -0.153485, -12.9654, 9.60594, 8.80447, -1.66563, 8.70928, -9.74803, -1.3003, 43.8169, 23.0246, -134.589)
+
+[node name="cube29" parent="World/clouds" instance=ExtResource("10_o4oga")]
+transform = Transform3D(-2.18084, 0.954413, 6.3997, -4.52545, 4.60189, -2.22844, -4.62464, -4.95326, -0.837245, 13.7194, 23.0246, -81.7045)
+
+[node name="cube30" parent="World/clouds" instance=ExtResource("10_o4oga")]
+transform = Transform3D(-3.8863, -5.02967, -2.49441, -4.52545, 4.60188, -2.22844, 3.32262, 0.384869, -5.95275, 18.368, 26.7083, -71.4226)
+
+[node name="cube31" parent="World/clouds" instance=ExtResource("10_o4oga")]
+transform = Transform3D(0.907557, 1.47333, 13.022, 9.60594, 8.80447, -1.66563, -8.91456, 9.63727, -0.469071, -10.5376, 23.0246, -63.343)
+
+[node name="cube35" parent="World/clouds" instance=ExtResource("10_o4oga")]
+transform = Transform3D(0.205845, 0.33417, 2.95355, 2.17875, 1.99696, -0.377786, -2.02193, 2.18585, -0.106391, 9.49957, 7.1954, -62.2134)
+
+[node name="cube36" parent="World/clouds" instance=ExtResource("10_o4oga")]
+transform = Transform3D(-1.73404, 2.11538, 1.18142, 2.17875, 1.99696, -0.377786, -1.06004, 0.644034, -2.70907, 8.63, 10.528, -61.2589)
+
+[node name="cube37" parent="World/clouds" instance=ExtResource("10_o4oga")]
+transform = Transform3D(-1.93494, 1.86869, -1.2812, 2.17875, 1.99696, -0.377786, 0.621762, -1.18221, -2.66333, 12.2761, 10.528, -60.7007)
+
+[node name="cube39" parent="World/clouds" instance=ExtResource("10_o4oga")]
+transform = Transform3D(1.36832, -1.8508, -1.89202, 2.17875, 1.99696, -0.377786, 1.50276, -1.21002, 2.27047, 12.5493, 12.5383, -61.1041)
+
+[node name="cube38" parent="World/clouds" instance=ExtResource("10_o4oga")]
+transform = Transform3D(1.25567, -0.887146, 2.55221, 2.17875, 1.99696, -0.377786, -1.59808, 2.02549, 1.49031, 14.6186, 7.66065, -62.0616)
 
 [node name="Sun" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.422618, -0.694272, 0.582564, 0, 0.642788, 0.766044, -0.906308, 0.323744, -0.271654, 14.0151, 7.55289, -5.2125)
+transform = Transform3D(-0.422618, -0.694272, 0.582563, 0, 0.642788, 0.766044, -0.906308, 0.323744, -0.271654, 0, 0, 0)
 shadow_enabled = true
 shadow_opacity = 0.75
 
@@ -188,7 +562,7 @@ offset_top = 64.0
 offset_right = 144.0
 offset_bottom = 123.0
 text = "×"
-label_settings = SubResource("LabelSettings_38ys3")
+label_settings = SubResource("LabelSettings_2p0y7")
 
 [node name="Coins" type="Label" parent="HUD"]
 offset_left = 144.0
@@ -196,7 +570,13 @@ offset_top = 64.0
 offset_right = 368.0
 offset_bottom = 123.0
 text = "0"
-label_settings = SubResource("LabelSettings_38ys3")
+label_settings = SubResource("LabelSettings_2p0y7")
 
-[connection signal="coin_collected" from="Player" to="HUD" method="_on_coin_collected"]
-[connection signal="body_entered" from="World/goal" to="World/goal" method="_on_body_entered"]
+[node name="Viewer" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.1544, 3.85731, 4.38457)
+script = ExtResource("3_xppnm")
+
+[node name="Camera3D" type="Camera3D" parent="Viewer"]
+
+[node name="Player" parent="." instance=ExtResource("2_yxnwg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.2696, 0.38823, -4.64015)

@@ -2,7 +2,6 @@
 
 [ext_resource type="PackedScene" uid="uid://dl2ed4gkybggf" path="res://objects/player.tscn" id="1_p4ox5"]
 [ext_resource type="Script" path="res://scripts/view.gd" id="2_gc653"]
-[ext_resource type="Script" path="res://scenes/PlayerCamera.gd" id="3_hj8vt"]
 [ext_resource type="PackedScene" uid="uid://rjh4ifidqrfp" path="res://objects/platform_medium.tscn" id="4_of7w3"]
 [ext_resource type="PackedScene" uid="uid://uqr4hswv6d2g" path="res://objects/platform_grass_large_round.tscn" id="5_72iq4"]
 [ext_resource type="PackedScene" uid="uid://dfpisimsgf5ce" path="res://objects/coin.tscn" id="6_xr3x7"]
@@ -11,6 +10,12 @@
 [ext_resource type="Texture2D" uid="uid://cd7oyc56ehkx1" path="res://sprites/coin.png" id="10_1eggl"]
 [ext_resource type="FontFile" uid="uid://d0cxd77jybrcn" path="res://fonts/lilita_one_regular.ttf" id="11_hvlxw"]
 [ext_resource type="Environment" uid="uid://bqnqgflivjvue" path="res://scenes/main-environment.tres" id="12_dqohu"]
+
+[sub_resource type="GDScript" id="GDScript_4815i"]
+script/source = "extends Camera3D
+
+
+"
 
 [sub_resource type="GDScript" id="GDScript_jpams"]
 script/source = "extends Node3D
@@ -30,18 +35,21 @@ shadow_offset = Vector2(2, 2)
 
 [node name="Main World" type="Node3D"]
 
+[node name="Environment" type="WorldEnvironment" parent="."]
+environment = ExtResource("12_dqohu")
+
 [node name="Player" parent="." instance=ExtResource("1_p4ox5")]
-transform = Transform3D(-0.993871, 0, 0.11055, 0, 1, 0, -0.11055, 0, -0.993871, 10.7933, 36.2662, 0.839608)
+transform = Transform3D(-0.993871, 0, 0.11055, 0, 1, 0, -0.11055, 0, -0.993871, 10.4803, 37.485, -0.857312)
 
 [node name="View" type="Node3D" parent="."]
 transform = Transform3D(0.707107, -0.298836, 0.640856, 0, 0.906308, 0.422618, -0.707107, -0.298836, 0.640856, 0, 0, 0)
 script = ExtResource("2_gc653")
 
 [node name="Camera" type="Camera3D" parent="View"]
-transform = Transform3D(0.999994, 0.00311187, 0.00144458, -0.00310692, 0.999989, -0.00343345, -0.00145528, 0.00342858, 0.999994, -15.4674, 33.5802, 39.8693)
+transform = Transform3D(0.999994, 0.00311187, 0.00144458, -0.00310692, 0.999989, -0.00343345, -0.00145528, 0.00342858, 0.999994, 7.49933, 31.4251, 23.8664)
 current = true
 fov = 39.8806
-script = ExtResource("3_hj8vt")
+script = SubResource("GDScript_4815i")
 
 [node name="World" type="Node3D" parent="."]
 
@@ -397,6 +405,3 @@ offset_right = 368.0
 offset_bottom = 123.0
 text = "0"
 label_settings = SubResource("LabelSettings_eh7ad")
-
-[node name="Environment" type="WorldEnvironment" parent="."]
-environment = ExtResource("12_dqohu")

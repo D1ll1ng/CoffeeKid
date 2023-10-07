@@ -11,6 +11,7 @@ extends Node3D
 @export_group("Rotation")
 @export var rotation_speed = 120
 
+
 var camera_rotation:Vector3
 var zoom = 10
 
@@ -20,8 +21,6 @@ func _ready():
 
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	camera_rotation = rotation_degrees * 0 # Initial rotation
-	
-	pass
 
 func _physics_process(delta):
 	
