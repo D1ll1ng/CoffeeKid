@@ -41,10 +41,10 @@ func _physics_process(delta):
 
 	
 # Camera movement Mouse
-func _input(event):
-	if event is InputEventMouseMotion:
-		rotate(Vector3.UP, event.relative.x * 0.001)
-		rotate_object_local(Vector3.LEFT, event.relative.y * 0.001)
+#func _input(event):
+#	if event is InputEventMouseMotion:
+#		rotate(Vector3.UP, event.relative.x * 0.001)
+#		rotate_object_local(Vector3.LEFT, event.relative.y * 0.001)
 		
 
 # Handle input
