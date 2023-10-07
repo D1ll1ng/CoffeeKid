@@ -9,8 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://c8up71en5djgm" path="res://objects/platform_falling.tscn" id="6_g72pf"]
 [ext_resource type="PackedScene" uid="uid://uqr4hswv6d2g" path="res://objects/platform_grass_large_round.tscn" id="7_7hsyy"]
 [ext_resource type="PackedScene" uid="uid://dfpisimsgf5ce" path="res://objects/coin.tscn" id="8_uijbv"]
-[ext_resource type="PackedScene" uid="uid://dc88fsr0pjppc" path="res://scenes/area_3d.tscn" id="9_o4w87"]
 [ext_resource type="PackedScene" uid="uid://dy017k58p20sk" path="res://objects/cloud.tscn" id="10_olbsj"]
+[ext_resource type="PackedScene" uid="uid://bw4db4gf3v8y1" path="res://objects/gate.tscn" id="10_rwyeh"]
 [ext_resource type="Script" path="res://scripts/hud.gd" id="11_ewi8b"]
 [ext_resource type="Texture2D" uid="uid://cd7oyc56ehkx1" path="res://sprites/coin.png" id="12_eyt6w"]
 [ext_resource type="FontFile" uid="uid://d0cxd77jybrcn" path="res://fonts/lilita_one_regular.ttf" id="13_a2wla"]
@@ -460,14 +460,7 @@ transform = Transform3D(0.946085, 0, 0.323917, 0, 1, 0, -0.323917, 0, 0.946085, 
 [node name="coin44" parent="World/Coins" instance=ExtResource("8_uijbv")]
 transform = Transform3D(0.946085, 0, 0.323917, 0, 1, 0, -0.323917, 0, 0.946085, 15.0142, 49.0718, -86.377)
 
-[node name="goal" parent="World" instance=ExtResource("9_o4w87")]
-transform = Transform3D(-0.183078, 0, -2.62011, 0, 2.62649, 0, 2.62011, 0, -0.183078, 17.079, 0.707772, -0.505169)
-
-[node name="goal2" parent="World" instance=ExtResource("9_o4w87")]
-transform = Transform3D(2.62592, 0, -0.0550969, 0, 2.62649, 0, 0.0550969, 0, 2.62592, 11.6249, 7.19032, -63.6832)
-
-[node name="goal3" parent="World" instance=ExtResource("9_o4w87")]
-transform = Transform3D(2.62592, 0, -0.0550969, 0, 2.62649, 0, 0.0550969, 0, 2.62592, 4.60809, 82.9715, -106.906)
+[node name="Gate" parent="World" instance=ExtResource("10_rwyeh")]
 
 [node name="clouds" type="Node3D" parent="World"]
 
@@ -600,6 +593,3 @@ text = "0"
 label_settings = SubResource("LabelSettings_38ys3")
 
 [connection signal="coin_collected" from="Player" to="HUD" method="_on_coin_collected"]
-[connection signal="body_entered" from="World/goal" to="World/goal" method="_on_body_entered"]
-[connection signal="body_entered" from="World/goal2" to="World/goal2" method="_on_body_entered"]
-[connection signal="body_entered" from="World/goal3" to="World/goal3" method="_on_body_entered"]

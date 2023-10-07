@@ -4,13 +4,13 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sq8n0"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xhoj2"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v50g5"]
 emission_enabled = true
 emission = Color(0.576471, 0.756863, 0.878431, 1)
 emission_energy_multiplier = 2.28
 
 [sub_resource type="TextMesh" id="TextMesh_awbrg"]
-material = SubResource("StandardMaterial3D_xhoj2")
+material = SubResource("StandardMaterial3D_v50g5")
 text = "G"
 
 [node name="goal" type="Area3D"]

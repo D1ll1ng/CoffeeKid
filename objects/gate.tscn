@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://bw4db4gf3v8y1"]
+
+[ext_resource type="Script" path="res://scenes/Gate.gd" id="1_8cqf6"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uof6n"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xhoj2"]
+emission_enabled = true
+emission = Color(0.576471, 0.756863, 0.878431, 1)
+emission_energy_multiplier = 2.28
+
+[sub_resource type="TextMesh" id="TextMesh_c0u8t"]
+material = SubResource("StandardMaterial3D_xhoj2")
+text = "G"
+
+[node name="Gate" type="Area3D"]
+transform = Transform3D(-0.183078, 0, -2.62011, 0, 2.62649, 0, 2.62011, 0, -0.183078, 17.079, 0.707772, -5.57915)
+script = ExtResource("1_8cqf6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.277416, 0.483008, -0.0193839)
+shape = SubResource("BoxShape3D_uof6n")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(7.77775, 0, 2.38419e-07, 0, 7.77775, 0, -2.38419e-07, 0, 7.77775, 0.191898, 0.381718, -0.0193853)
+mesh = SubResource("TextMesh_c0u8t")
+skeleton = NodePath("")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
