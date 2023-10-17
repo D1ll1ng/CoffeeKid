@@ -163,3 +163,9 @@ func collect_coin():
 	coins += 1
 	
 	coin_collected.emit(coins)
+
+
+func _on_coin_collected():
+	coins += 1
+	
+	coin_collected.emit(coins)
